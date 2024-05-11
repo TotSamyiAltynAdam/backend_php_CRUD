@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Login</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
                     $row = mysqli_fetch_assoc($result);
 
                     if(is_array($row) && !empty($row)){
-                        $_SESSION['valid'] = $row['Login'];
+                        $_SESSION['login'] = $row['Login'];
                         $_SESSION['firstName'] = $row['FirstName'];
                         $_SESSION['lastName'] = $row['LastName'];
                         $_SESSION['email'] = $row['Email'];
@@ -33,7 +33,7 @@
                             </div> <br>";
                         echo "<a href='index.php'><button class='btn'>Go Back</button>";
                     }
-                    if(isset($_SESSION['valid'])){
+                    if(isset($_SESSION['login'])){
                         header("Location: home.php");
                     }
                 } else {

@@ -2,7 +2,7 @@
     session_start();
 
     include("php/config.php");
-    if(!isset($_SESSION['valid'])){
+    if(!isset($_SESSION['login'])){
         header("Location: index.php");
     }
 ?>
@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Change Profile</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
                     $password = $_POST['password'];
                     $email = $_POST['email'];
 
-                    $login = $_SESSION['valid'];
+                    $login = $_SESSION['login'];
 
                     $edit_query = mysqli_query($con,"UPDATE p2user 
                                                     SET FirstName='$firstName', LastName='$lastName', Passwd='$password', Email='$email' 
@@ -50,7 +50,7 @@
                     }
                 } else {
 
-                    $login = $_SESSION['valid'];
+                    $login = $_SESSION['login'];
                     $query = mysqli_query($con,"SELECT * FROM p2user WHERE Login = '$login'");
 
                     while($result = mysqli_fetch_assoc($query)){

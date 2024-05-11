@@ -2,11 +2,11 @@
    session_start();
 
     include("php/config.php");
-    if(!isset($_SESSION['valid'])){
+    if(!isset($_SESSION['login'])){
         header("Location: index.php");
     }
 
-    $login = $_SESSION['valid'];
+    $login = $_SESSION['login'];
     $query = mysqli_query($con,"SELECT * FROM P2User WHERE Login='$login'");
     $result = mysqli_fetch_assoc($query);
 
@@ -26,7 +26,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <title>Home</title>
 </head>
 <body>
@@ -36,6 +36,8 @@
         </div>
 
         <div class="right-links">
+            <a href="billing.php">Billing</a>
+            <a href="shipping.php">Shipping</a>
             <a href="edit.php">Change Profile</a>
             <a href="php/logout.php"> <button class="btn">Log Out</button> </a>
         </div>
