@@ -47,15 +47,15 @@
        <div class="main-box top">
           <div class="top">
           <div class="box">
-                <p>Hello <b><?php echo $firstName . " " . $lastName ?></b>, Welcome</p>
+                <p>I am <b><?php echo $firstName . " " . $lastName ?></b></p>
             </div>
             <div class="box">
-                <p>Your email is <b><?php echo $email ?></b>.</p>
+                <p>My email is <b><?php echo $email ?></b>.</p>
             </div>
           </div>
           <div class="bottom">
             <div class="box">
-                <p>And <b><?php echo $login ?></b> have newsletter - <b><?php echo $newsLetter ?></b>.</p> 
+                <p>My login is - <b><?php echo $login ?></b>, and I have newsletter - <b><?php echo $newsLetter ?></b>.</p> 
             </div>
           </div>
        </div>

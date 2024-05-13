@@ -34,11 +34,13 @@
                     $lastName = $_POST['lastName'];
                     $password = $_POST['password'];
                     $email = $_POST['email'];
+                    $newsletter = $_POST['newsletter'];
 
                     $login = $_SESSION['login'];
 
                     $edit_query = mysqli_query($con,"UPDATE p2user 
-                                                    SET FirstName='$firstName', LastName='$lastName', Passwd='$password', Email='$email' 
+                                                    SET FirstName='$firstName', LastName='$lastName', 
+                                                    Passwd='$password', Email='$email', NewsLetter='$newsletter'
                                                     WHERE Login='$login'") 
                                                 or die("error occurred");
 
@@ -59,6 +61,7 @@
                         $res_FirstName = $result['FirstName'];
                         $res_LastName = $result['LastName'];
                         $res_Password = $result['Passwd'];
+                        $res_Newsletter = $result['NewsLetter'];
                     }
             ?>
                 <header>Change Profile</header>
@@ -81,6 +84,18 @@
                     <div class="field input">
                         <label for="password">Password</label>
                         <input type="text" name="password" id="password" value="<?php echo $res_Password; ?>" autocomplete="off" required>
+                    </div>
+
+                    <div class="field">
+                        <label>Newsletter:</label>
+                        <div>
+                            <input type="radio" name="newsletter" value="yes" id="newsletter_yes" <?php if($res_Newsletter == 'yes') echo 'checked'; ?> required>
+                            <label for="newsletter_yes">Yes</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="newsletter" value="no" id="newsletter_no" <?php if($res_Newsletter == 'no') echo 'checked'; ?> required>
+                            <label for="newsletter_no">No</label>
+                        </div>
                     </div>
 
                     <div class="field">
